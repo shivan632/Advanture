@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to ADVENTURE</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <style>
+        /* Google fonts */
+        @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;800&family=Parisienne&family=Roboto&family=Teko:wght@300&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap");
+
+        /* Root element (aka html) */
+        :root {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+
+        /* CSS Variables */
+        /* Fonts */
+        --ff-parisienne: "Parisienne", cursive;
+        --ff-montserrat: "Montserrat", sans-serif;
+        --ff-lora: "Lora", serif;
+        --ff-roboto: "Roboto", sans-serif;
+        --ff-rubik-dirt: "Rubik Dirt", cursive;
+        --fs-paragraphs: calc(0.8rem + 0.35vw);
+        --fs-links-btns: calc(0.65rem + 0.5vw);
+        }
+
+        /* Global */
+        *,
+        *::before,
+        *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+        }
+
+        img {
+        max-width: 100%;
+        display: block;
+        }
+
+        a {
+        text-decoration: none;
+        }
+
+        ul {
+        list-style: none;
+        }
+
+        span {
+        color: #7c7c7c;
+        padding: 0px 40px;
+        }
+
+        body,
+        html {
+        overflow-x: hidden;
+        box-sizing: border-box;
+        }
+
+        .container {
+        width: 98%;
+        max-width: 91rem;
+        margin: 0 auto;
+        }
+
+        /*scrollbar*/
+        ::-webkit-scrollbar {
+        width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background: gray;
+        border-radius: 10px;
+        }
+
+        /* Navbar */
+        .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: saturate(180%) blur(10px);
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 5px;
+        z-index: 10;
+        color: whitesmoke;
+        }
+
+        .logo {
+        font-family: var(--ff-rubik-dirt);
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.4rem;
+        padding: 0 1.2rem;
+        font-weight: 300;
+        color: rgb(254, 252, 252); 
+        }
+
+        .nav-links {
+        display: flex;
+        align-items: center;
+        }
+
+        .nav-links li {
+        font-family: var(--ff-montserrat);
+        margin: 0px 15px;
+        }
+
+        .nav-links li a {
+        color: white;
+        cursor: pointer;
+        }
+
+        .cir_border {
+        padding: 6px 20px;
+        font-weight: bold;
+        border: 2px hidden whitesmoke;
+        border-radius: 20px;
+        margin: 0px -10px;
+        }
+
+        /* Hero Section */
+        .welcome-hero {
+        width: 100vw;
+        height: 100vh;
+        background-image: url("https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80");
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        }
+
+        .welcome-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        }
+
+        .welcome-content {
+        font-family: var(--ff-lora);
+        letter-spacing: 0.5rem;
+        color: whitesmoke;
+        text-align: center;
+        z-index: 1;
+        padding: 4rem;
+        max-width: 900px;
+        }
+
+        .welcome-content h2 {
+        font-size: 4vmin;
+        margin-bottom: 30px;
+        }
+
+        .line {
+        width: 150px;
+        height: 4px;
+        background: #fc036b;
+        margin: 10px auto;
+        border-radius: 5px;
+        }
+
+        .welcome-content h1 {
+        font-size: 7vmin;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        }
+
+        .ctn {
+        font-family: var(--ff-montserrat);
+        font-size: var(--fs-links-btns);
+        font-weight: 700;
+        padding: 13px 50px;
+        background: #fc036b;
+        border-radius: 30px;
+        color: whitesmoke;
+        margin-top: 30px;
+        display: inline-block;
+        }
+
+        /* Intro Section */
+        .intro-section {
+        width: 100%;
+        padding: 80px 0;
+        background: #000;
+        }
+
+        .intro-container {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        .intro-title {
+        text-align: center;
+        font-family: var(--ff-montserrat);
+        font-size: 4vmin;
+        color: white;
+        margin-bottom: 50px;
+        }
+
+        .intro-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 30px;
+        }
+
+        .intro-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 30px;
+        width: 350px;
+        transition: transform 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .intro-card:hover {
+        transform: translateY(-10px);
+        border-color: #fc036b;
+        }
+
+        .intro-card h3 {
+        font-family: var(--ff-montserrat);
+        font-size: 1.8rem;
+        color: #fc036b;
+        margin-bottom: 20px;
+        text-align: center;
+        }
+
+        .intro-card p {
+        font-family: var(--ff-roboto);
+        font-size: var(--fs-paragraphs);
+        color: #ddd;
+        line-height: 1.6;
+        text-align: justify;
+        }
+
+        .intro-icon {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        color: #fc036b;
+        }
+
+        /* Purpose Section */
+        .purpose-section {
+        width: 100%;
+        padding: 80px 0;
+        background: #111;
+        }
+
+        .purpose-container {
+        width: 80%;
+        margin: 0 auto;
+        }
+
+        .purpose-content {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 50px;
+        margin-top: 30px;
+        border-left: 5px solid #fc036b;
+        }
+
+        .purpose-content p {
+        font-family: var(--ff-roboto);
+        font-size: var(--fs-paragraphs);
+        color: #ddd;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        }
+
+        .highlight {
+        color: #fc036b;
+        font-weight: bold;
+        }
+
+        /* Importance Section */
+        .importance-section {
+        width: 100%;
+        padding: 80px 0;
+        background: #000;
+        }
+
+        .importance-container {
+        width: 80%;
+        margin: 0 auto;
+        }
+
+        .importance-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+        }
+
+        .importance-item {
+        background: rgba(252, 3, 107, 0.1);
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(252, 3, 107, 0.2);
+        }
+
+        .importance-item:hover {
+        background: rgba(252, 3, 107, 0.2);
+        transform: scale(1.05);
+        }
+
+        .importance-item h4 {
+        font-family: var(--ff-montserrat);
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 15px;
+        }
+
+        .importance-item p {
+        font-family: var(--ff-roboto);
+        font-size: var(--fs-paragraphs);
+        color: #ccc;
+        line-height: 1.6;
+        }
+
+        /* Footer - 与原始网站完全一致 */
+        .footer {
+            width: 100%;
+            min-height: 100px;
+            padding: 20px 80px;
+            margin: 0;
+            background: #222;
+            text-align: center;
+            font-family: var(--ff-roboto);
+        }
+
+        .footer p {
+            color: whitesmoke;
+            margin: 20px auto;
+            padding: 20px auto;
+        }
+
+        .footer span {
+            display: block;
+            color: whitesmoke;
+            padding: 10px 0;
+            font-size: 1rem;
+        }
+
+        .social {
+            width: 360px;
+            margin: 30px auto;
+        }
+
+        .social li {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social a {
+            margin-right: 0;
+            font-size: 18px;
+            background-color: transparent;
+            border-radius: 50%;
+            padding: 10px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social a:hover {
+            background-color: #fc036b;
+            transform: translateY(-3px);
+        }
+
+        .social i {
+            display: inline;
+            text-align: center;
+            color: whitesmoke;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            width: 100%;
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .cta-content h2 {
+            font-family: var(--ff-montserrat);
+            font-size: 3.5vmin;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-family: var(--ff-roboto);
+            font-size: var(--fs-paragraphs);
+            color: #ddd;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Animations */
+        .ctn:hover {
+            background: whitesmoke;
+            color: #fc036b;
+            box-shadow: 2px 2px 5px #00000056;
+            cursor: pointer;
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+
+        .cir_border:hover{
+            color: #fc036b;
+        }
+
+        .active {
+            border: 2px solid whitesmoke;
+            border-radius: 20px;
+            color: #fc036b;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .welcome-content {
+                padding: 2rem;
+            }
+            
+            .intro-content, .importance-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .intro-card, .importance-item {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .purpose-content {
+                padding: 30px;
+            }
+            
+            .footer {
+                padding: 20px 30px;
+            }
+            
+            .social {
+                width: 100%;
+                max-width: 360px;
+            }
+            
+            .social li {
+                gap: 10px;
+            }
+            
+            .social a {
+                padding: 8px 10px;
+            }
+        }
+
+        .menu-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 40px;
+            cursor: pointer;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+            
+            .nav-links.mobile-menu {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                width: 100%;
+                padding: 20px;
+                z-index: 100;
+            }
+            
+            .nav-links.mobile-menu li {
+                margin: 15px 0;
+            }
+            
+            .nav-links.mobile-menu a {
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #fc036b;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: white;
+            color: #fc036b;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top i {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!--navbar-->
+    <nav class="navbar glass" style="height: 70px">
+        <span
+            ><a href="#home" style="display: flex; align-items: center"
+                ><img
+                    class="img2"
+                    src="./img/mountain.png"
+                    width="40"
+                    style="margin: -25px -10px -25px -20px"
+                />
+                <h1 class="logo">&nbsp;ADVENTURE</h1></a
+            ></span
+        >
+        <ul class="nav-links">
+            <li>
+                <a href="#home" id="pri" class="active cir_border">Home</a>
+            </li>
+            <li><a href="#intro" id="sec" class="cir_border">Introduction</a></li>
+            <li>
+                <a href="#purpose" id="tri" class="cir_border">Purpose</a>
+            </li>
+            <li>
+                <a href="#importance" id="quad" class="cir_border">Importance</a>
+            </li>
+            <li>
+                <a href="#explore" id="quint" class="cir_border">Explore Now</a>
+            </li>
+            <li>
+                <a href="index.html" id="hex" class="cir_border">Main Site</a>
+            </li>
+        </ul>
+        <img src="./img/menu-btn.png" alt="" class="menu-btn" />
+    </nav>
+    <!--navbar-->
+
+    <!-- Hero Section -->
+    <section class="welcome-hero" id="home">
+        <div class="welcome-content">
+            <h2>Welcome to</h2>
+            <div class="line"></div>
+            <h1>ADVENTURE EXPLORER</h1>
+            <p style="font-size: 1.2rem; letter-spacing: 0.1rem; margin-top: 20px; max-width: 800px; line-height: 1.6;">
+                Your gateway to unforgettable journeys and breathtaking experiences around the globe
+            </p>
+            <a href="#explore" class="ctn">Discover More</a>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section" id="intro">
+        <div class="intro-container">
+            <div class="intro-title">
+                <h1>Introduction</h1>
+                <div class="line"></div>
+            </div>
+            <div class="intro-content">
+                <div class="intro-card">
+                    <div class="intro-icon">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>Adventure Explorer is dedicated to connecting passionate travelers with the world's most extraordinary destinations. We believe that travel has the power to transform lives, broaden perspectives, and create lasting memories.</p>
+                </div>
+                <div class="intro-card">
+                    <div class="intro-icon">
+                        <i class="fa fa-compass"></i>
+                    </div>
+                    <h3>What We Offer</h3>
+                    <p>From challenging mountain treks to serene beach getaways, we curate exceptional travel experiences tailored to adventure seekers of all levels. Our team works tirelessly to ensure every journey is safe, memorable, and transformative.</p>
+                </div>
+                <div class="intro-card">
+                    <div class="intro-icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h3>Our Community</h3>
+                    <p>Join a community of like-minded explorers who share your passion for discovery. Connect with fellow travelers, share experiences, and get inspired for your next adventure through our platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purpose Section -->
+    <section class="purpose-section" id="purpose">
+        <div class="purpose-container">
+            <div class="intro-title">
+                <h1>Purpose</h1>
+                <div class="line"></div>
+            </div>
+            <div class="purpose-content">
+                <p>The primary purpose of Adventure Explorer is to <span class="highlight">democratize adventure travel</span> and make it accessible to everyone, regardless of their experience level or background. We aim to break down barriers to exploration and inspire people to step outside their comfort zones.</p>
+                
+                <p>In today's fast-paced world, many people yearn for authentic experiences but struggle to find reliable information or trustworthy partners for their adventures. We bridge this gap by providing <span class="highlight">comprehensive resources, expert guidance, and carefully vetted travel opportunities</span>.</p>
+                
+                <p>Our platform serves as both a planning tool and a community space where adventurers can research destinations, connect with local guides, book experiences, and share their stories. We're committed to <span class="highlight">sustainable tourism practices</span> that respect local cultures and preserve natural environments for future generations.</p>
+                
+                <p>Ultimately, we believe that adventure travel isn't just about seeing new places—it's about personal growth, cultural exchange, and creating meaningful connections with both people and nature.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Importance Section -->
+    <section class="importance-section" id="importance">
+        <div class="importance-container">
+            <div class="intro-title">
+                <h1>Why Adventure Travel Matters</h1>
+                <div class="line"></div>
+            </div>
+            <div class="importance-grid">
+                <div class="importance-item">
+                    <h4>Personal Growth</h4>
+                    <p>Adventure travel challenges you physically and mentally, building resilience, confidence, and problem-solving skills that translate to all areas of life.</p>
+                </div>
+                <div class="importance-item">
+                    <h4>Cultural Exchange</h4>
+                    <p>Immersive travel experiences foster understanding and appreciation for diverse cultures, breaking down stereotypes and building global connections.</p>
+                </div>
+                <div class="importance-item">
+                    <h4>Environmental Awareness</h4>
+                    <p>Experiencing natural wonders firsthand creates environmental stewards who understand the importance of conservation and sustainable practices.</p>
+                </div>
+                <div class="importance-item">
+                    <h4>Health Benefits</h4>
+                    <p>Physical activity in nature reduces stress, improves mental health, and promotes overall wellbeing through fresh air, exercise, and disconnection from daily routines.</p>
+                </div>
+                <div class="importance-item">
+                    <h4>Economic Impact</h4>
+                    <p>Responsible adventure tourism supports local economies, creates jobs in rural areas, and promotes preservation of cultural heritage sites.</p>
+                </div>
+                <div class="importance-item">
+                    <h4>Lifelong Memories</h4>
+                    <p>The challenges and triumphs of adventure travel create powerful memories and stories that last a lifetime, often becoming defining moments in people's lives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section" id="explore">
+        <div class="cta-content">
+            <h2>Ready for Your Next Adventure?</h2>
+            <div class="line" style="margin: 20px auto;"></div>
+            <p>Join thousands of adventurers who have discovered the world with us. Whether you're seeking adrenaline-pumping experiences or peaceful nature escapes, we have the perfect journey waiting for you.</p>
+            <a href="home.html" class="ctn">Explore All Adventures</a>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fa fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <section class="footer">
+        <span>Created By Adventure Team | &#169; 2023 All rights reserved.</span>
+        <div class="social">
+            <li>
+                <a
+                    href="https://adventure-explorer.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    ><i class="fa fa-globe"></i
+                ></a>
+                <a
+                    href="https://github.com/adventure-explorer"
+                    target="_blank"
+                    rel="noreferrer"
+                    ><i class="fa fa-github"></i
+                ></a>
+                <a
+                    href="https://www.linkedin.com/company/adventure-explorer"
+                    target="_blank"
+                    rel="noreferrer"
+                    ><i class="fa fa-linkedin-square"></i
+                ></a>
+                <a
+                    href="https://www.instagram.com/adventure_explorer"
+                    target="_blank"
+                    rel="noreferrer"
+                    ><i class="fa fa-instagram"></i
+                ></a>
+                <a
+                    href="https://www.facebook.com/adventureexplorer"
+                    target="_blank"
+                    rel="noreferrer"
+                    ><i class="fa fa-facebook"></i
+                ></a>
+            </li>
+        </div>
+        <span style="font-size: 0.9rem; color: #aaa; margin-top: 20px;">
+            Adventure Explorer | Email: info@adventure-explorer.com | Phone: +1 (800) 123-4567
+        </span>
+        <span style="font-size: 0.8rem; color: #888; margin-top: 10px;">
+            Follow us for daily adventure inspiration and travel tips!
+        </span>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector(".menu-btn");
+        const navlinks = document.querySelector(".nav-links");
+
+        menuBtn.addEventListener("click", () => {
+            navlinks.classList.toggle("mobile-menu");
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navlinks.classList.remove('mobile-menu');
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if(scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if(link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+            
+            // Show/hide back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar') && navlinks.classList.contains('mobile-menu')) {
+                navlinks.classList.remove('mobile-menu');
+            }
+        });
+    </script>
+</body>
+</html>
